@@ -505,7 +505,6 @@ dayold () {
 	ammortizzatore=$(printf "%${a#-}s") ; tabs=${ammortizzatore// /\\t};
 	
 	#echo "${#str} ${a#-}"
-	
 	if [ "$2" ]; then
 	    echo "$gg"
 	else
@@ -541,7 +540,7 @@ PrintList() {
 		C1=`echo $n | awk '{ print $1 }'`
 		C2=`echo $n | awk '{ print $2 }'`
 
-		DAYZ=`dayold $C1`
+		DAYZ=`dayold $C1 1`
 		PKTSZ=`PktSize $C2`
 
 		# C1 (date) wrong or C2 (name) too small means a wrong line to not parse
@@ -552,7 +551,6 @@ PrintList() {
 		fi
 
 		# days specified check
-
 		if [ "$ONLYDAYS" != "0" ] && [ "$DAYZ" -lt "$ONLYDAYS" ]; then
 			break
 		fi
