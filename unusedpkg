@@ -551,7 +551,7 @@ PrintList() {
 		fi
 
 		# days specified check
-		if [[ ( ( "$ONLYDAYS" != "0" ) && ( "$DAYZ" -gt "$ONLYDAYS" ) ) && ( `sizecompare $PKTSZ $ONLYSIZE` == "$PKTSZ" ) ]]; then
+		if [[ ( ( "$ONLYDAYS" == "0" ) || ( "$DAYZ" -gt "$ONLYDAYS" ) ) && ( `sizecompare $PKTSZ $ONLYSIZE` == "$PKTSZ" ) ]]; then
 			if [ $QUIET == 0 ]; then
 				echo -e "$DAYZ\t\t$PKTSZ\t$C2 "
 			else
