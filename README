@@ -1,26 +1,23 @@
-	== UnusedPkg 0.6 ==
+# UnusedPkg v0.7
 
-UnusedPkg is a diagnostic tool to find unused packages in your Linux system sorted by idle time. This helps you determine what packages are old and can be manually removed to get more space and keep system clean. It supports any apt-based distribution (tested on Debian and Ubuntu) and Slackware.
+UnusedPkg is a diagnostic tool to find theunused packages in your Linux system, sorted by their idle time. This helps to find unused packages which could be manually removed to free some space in the filesystem. It supports any apt-based distribution (tested on Debian and Ubuntu) and Slackware.
 
-By default UnusedPkg collect information only of packages containing binary program files placed in $PATH environment variable.
-Use -a option to disallow the default behaviour and get timestamp statistics of every kind of packages.
+By default UnusedPkg collect the timestamps of the packages having binaries installed in the $PATH folders.
+Use `-a` option to collect the statistics of every package installed in the system.
 
-	= Install =
+## Install 
 
-You can run it from any place, ore move script to /usr/bin/.
+You can optionally move the `unusedpkg` script to `/usr/bin/` system folder.
 
-	= Known issues =
+## Known issues
 
-Package analysis of unusedpkg is purely indicative, because a single file with a wrong access timestamp can compromise the number of idle days of an entire package. The unusedpkg analysis can be faked because usually files are touched by
+The timestamp of the packages is purely indicative, since a single file with a wrong access timestamp influences the idle days count of the entire package. The unusedpkg analysis can be compromised because usually files are touched by
 
-  * Commands that browse entire filesystem
-  * Post install scripts (Especially in slackware, some packages post install scripts can move files after installation)
+* Commands that browse entire filesystem (e.g. `locate`)
+* Post install scripts (e.g. Slackware post install scripts sometime move files after installation)
 
-Warning: to avoid to undelete useful packages, before uninstalling any packet, check manually timestamps with 'info' options. Use unusedpkg at your own risk.
+Warning: to avoid to undelete useful packages, before uninstalling any packet, check manually the timestamps. Use unusedpkg at your own risk.
 
-	= About =
+## About
 
 Website: https://github.com/epinna/Unusedpkg
-
-Enjoy.
-

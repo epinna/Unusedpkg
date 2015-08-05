@@ -17,9 +17,11 @@
 #GNU General Public License for more details.
 #
 
-VER=0.6
+VER=0.7
 
 #
+#* version 0.7
+# Fix typos
 #* version 0.6
 #* version 0.5
 #Scan only packages with binary programs: other packages (like libraries) are usually system-purpose and 
@@ -103,7 +105,7 @@ if [ $DISTR == "apt" ]; then
 
 		Z=0
 	
-		[ "$QUIET" -eq "0" ] && echo $FNUM packets to analyze.
+		[ "$QUIET" -eq "0" ] && echo $FNUM packages available.
 	
 		mkdir -p $DBDIR
 		rm $DBDIR/pkglist.tmp &> /dev/null
@@ -522,8 +524,8 @@ PrintList() {
 	if [ "$QUIET" == 0 ]; then
 	
 		echo "WARNING:"
-		echo "   Idle days may be wrong. Before delete anything, check package timestamps" 
-		echo "   using 'unusedpkg info <package>', or manually with 'ls -alu'. View README for infos."
+		echo "   The reported idle days may be wrong. Before removing packages, check timestamps with" 
+		echo "   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. View README for infos."
 		echo ""
 		echo "Minimum packages size: $ONLYSIZE"
 		if [ "$ONLYDAYS" != "0" ]; then echo "Packages older than $ONLYDAYS days"; fi
@@ -666,7 +668,7 @@ fi
 
 if [ "$ACTION" == "update" ]; then
 
-		[ "$QUIET" -eq "0" ] && echo This procedure scans the whole system, so may take some time.
+		[ "$QUIET" -eq "0" ] && echo File system scan, it may take some time.
 		UpdateList
 
 		exit 0
