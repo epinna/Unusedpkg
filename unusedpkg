@@ -524,7 +524,7 @@ PrintList() {
 	
 		echo "WARNING:"
 		echo "   The reported idle days may be wrong. Before removing packages, check timestamps with" 
-		echo "   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. View README for infos."
+		echo "   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. See README for more info."
 		echo ""
 		echo "Minimum packages size: $ONLYSIZE"
 		if [ "$ONLYDAYS" != "0" ]; then echo "Packages older than $ONLYDAYS days"; fi
