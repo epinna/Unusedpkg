@@ -1,6 +1,6 @@
-# UnusedPkg v0.7
+# UnusedPkg v0.8
 
-UnusedPkg is a diagnostic tool to find theunused packages in your Linux system, sorted by their idle time. This helps to find unused packages which could be manually removed to free some space in the filesystem. It supports any apt-based distribution (tested on Debian and Ubuntu) and Slackware.
+UnusedPkg is a diagnostic tool to find theunused packages in your Linux system, sorted by their idle time. This helps to find unused packages which could be manually removed to free some space in the filesystem. It supports any apt-based distribution (tested on Debian and Ubuntu), Slackware and blackPanther OS.
 
 By default UnusedPkg collect the timestamps of the packages having binaries installed in the $PATH folders.
 Use `-a` option to collect the statistics of every package installed in the system.
@@ -21,3 +21,9 @@ Warning: to avoid to undelete useful packages, before uninstalling any packet, c
 ## About
 
 Website: https://github.com/epinna/Unusedpkg
+
+and 
+
+https://github.com/hmikihth/Unusedpkg
+
+
