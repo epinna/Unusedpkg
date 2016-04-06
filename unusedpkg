@@ -17,9 +17,11 @@
 #GNU General Public License for more details.
 #
 
-VER=0.7
+VER=0.8
 
 #
+#* version 0.8
+# Ported to blackPanther OS
 #* version 0.7
 # Fix typos
 #* version 0.6
@@ -647,6 +649,7 @@ PrintList() {
 
 		DAYZ=`dayold $C1 1`
 		PKTSZ=`PktSize $C2`
+		
 
 		# C1 (date) wrong or C2 (name) too small means a wrong line to not parse
 
@@ -656,7 +659,7 @@ PrintList() {
 		fi
 
 		# days specified check
-		if [[ ( ( "$ONLYDAYS" == "0" ) || ( "$DAYZ" -gt "$ONLYDAYS" ) ) && ( `sizecompare $PKTSZ $ONLYSIZE` == "$PKTSZ" ) ]]; then
+		if [[ ( ( "$ONLYDAYS" == "0" ) || ( "$DAYZ" -gt "$ONLYDAYS" ) ) &&  ( `sizecompare $PKTSZ $ONLYSIZE` == "$PKTSZ" )  ]]; then
 			if [ $QUIET == 0 ]; then
 				echo -e "$DAYZ\t\t$PKTSZ\t$C2 "
 			else
@@ -800,13 +803,13 @@ if [ "$ACTION" == "list" ]; then
 	DATE=`stat -c %x $DBDIR/pkglist 2>/dev/null | awk '{ print $1 }'`
 	DIFF=`dayold $DATE 1`
 	
-	if [ "$DIFF" -gt 8 ]; then
+	if [ $DIFF -gt 8 ]; then
 		echo "Database $DBDIR/pkglist seems $DIFF days old, execute $0 update, or press enter to continue."
 		read
 	fi
 
 	if [ "$ONLYTIME" != "0" ]; then
-		ONLYDAYS=`dayold $ONLYTIME`
+		ONLYDAYS=`dayold $ONLYTIME 1`
 	fi
 
 
