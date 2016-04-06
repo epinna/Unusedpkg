@@ -48,6 +48,8 @@ if [ -d /var/lib/dpkg/ ]; then
 	DISTR="apt";
 elif [ -d /var/log/packages ]; then 
 	DISTR="slackware" 
+elif [ -d /var/lib/urpmi/ ]; then 
+	DISTR="blackPantherOS" 
 else 
 	echo "Your linux distribution is unsupported by this unusedpkg version"
 	exit 1
@@ -298,6 +300,109 @@ if [ $DISTR == "slackware" ]; then
 
 
 fi
+
+
+if [ $DISTR == "blackPantherOS" ]; then
+	PktSize() {
+		SZ=`rpmquery -q --queryformat '%{size}' $1`
+	
+		SZRET=`formatsz $SZ "B"`
+		echo $SZRET
+	}
+
+	LastTimePkt() {
+		# Create regular expression ^/usr/local/bin/|^/usr/bin/|^/bin/
+		FULLLIST=`rpmquery -l $1`
+			
+		PATHS=^`echo $PATH | sed -e s/:/'\/|^'/g`
+		LIST=`rpmquery -l $1 | grep -E "$PATHS"`
+		
+		BIGGER=`stat -c "%x %F" $LIST 2> /dev/null | awk '!/dir/ { print $1 | "sort" }' | tail -n 1`
+		if [ "$BIGGER" ]; then 
+			BASE=`basename $1 .list`
+			echo -e "$BIGGER $BASE" >> $DBDIR/pkglist.tmp
+		fi
+	}
+
+
+	UpdateList() {
+	
+		#QUIET $1 (bool)
+	
+		LIST=`rpmquery -qa --queryformat '%{NAME}\n'`
+		FNUM=`echo $LIST | wc -w`
+		Z=0
+	
+		[ "$QUIET" -eq "0" ] && echo $FNUM packets to analyze.
+	
+		mkdir -p $DBDIR
+		rm $DBDIR/pkglist.tmp &> /dev/null
+	
+		for n in `echo $LIST`; do
+			if [ $QUIET == 0 ]; then
+				echo -ne "[$[Z*100/FNUM]%] `basename $n`                                   \r"
+			fi
+			LastTimePkt $n
+			Z=$[Z+1]
+		done
+	
+		if [ -e $DBDIR/pkglist.tmp ]; then
+
+			cat $DBDIR/pkglist.tmp | uniq | sort > $DBDIR/pkglist
+			rm $DBDIR/pkglist.tmp
+
+			echo "Database update done.                "
+		else
+			echo "Update failed: database $DBDIR/pkglist.tmp doesn't exist."
+			echo ""
+			exit 1
+		fi
+		
+	}
+
+
+	Info() {
+		
+		if [ ! $1 ]; then echo "Specify exact package name."; return; fi
+
+		FILE=`rpmquery -l $1`
+		if [ ! -f $FILE ]; then echo "Package $1 is not installed, please specify exact name."; return; fi
+
+		echo "Show $1 package informations:"
+		echo ""
+		urpmq -S $1
+		echo ""
+		
+		if [ $ALL == 0 ]; then
+			
+			FULLLIST=`cat $FILE`
+			
+			PATHS=^`echo $PATH | sed -e s/:/'\/|^'/g`
+			LIST=`cat $FILE | grep -E "$PATHS"`
+			
+			
+			 if [ ${#LIST} -lt 1 ]; then echo -e "The package doesn't contain any binary program file in the directories\n$PATH.\nTry with -a option.\n"; return 1; fi
+		else
+			LIST=`cat $FILE`
+			
+			 if [ ${#LIST} -lt 1 ]; then echo -e "The package doesn't contain any file\n"; return 1; fi
+		fi
+		 
+		
+		TMP=`mktemp`
+		stat -c "%n %x %F" $LIST 2> /dev/null | awk '!/dir/ { print $2"\t"$1 | "sort" }' > $TMP
+		cat $TMP
+
+		echo ""
+
+		echo "Last access to the package:" `tail -n 1 $TMP | cut -f1`
+		echo ""
+		rm $TMP
+		
+	}
+
+fi
+ 
 
 
 ###################################################
