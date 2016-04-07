@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-07 02:25+0100\n"
+"POT-Creation-Date: 2016-04-07 04:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,87 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: unusedpkg:753
+#: unusedpkg:62
+msgid "Your linux distribution is unsupported by this unusedpkg version"
+msgstr ""
+
+#: unusedpkg:362
+msgid "Database update done.                "
+msgstr ""
+
+#: unusedpkg:364
+msgid "Update failed: database "
+msgstr ""
+
+#: unusedpkg:364
+msgid " doesn't exist."
+msgstr ""
+
+#: unusedpkg:374
+msgid "Specify exact package name."
+msgstr ""
+
+#: unusedpkg:377
+msgid "Package"
+msgstr ""
+
+#: unusedpkg:377
+msgid "is not installed, please specify exact name."
+msgstr ""
+
+#: unusedpkg:379
+msgid "Show"
+msgstr ""
+
+#: unusedpkg:392
+msgid ""
+"The package doesn't contain any binary program file in the directories\\n"
+msgstr ""
+
+#: unusedpkg:392
+msgid ".\\nTry with -a option.\\n"
+msgstr ""
+
+#: unusedpkg:396
+msgid "The package doesn't contain any file\\n"
+msgstr ""
+
+#: unusedpkg:406
+msgid "Last access to the package:"
+msgstr ""
+
+#: unusedpkg:638
+msgid "WARNING:"
+msgstr ""
+
+#: unusedpkg:639
+msgid ""
+"   The reported idle days may be wrong. Before removing packages, check "
+"timestamps with"
+msgstr ""
+
+#: unusedpkg:640
+msgid ""
+"   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. See "
+"README for more info."
+msgstr ""
+
+#: unusedpkg:642
+msgid "Minimum packages size: "
+msgstr ""
+
+#: unusedpkg:643
+msgid "Packages older than "
+msgstr ""
+
+#: unusedpkg:643
+msgid " days"
+msgstr ""
+
+#: unusedpkg:645
+msgid "IDLE DAYS  \\tSIZE\tPACKAGE NAME"
+msgstr ""
+
+#: unusedpkg:755
 msgid "  Find unused packages in your Linux system."
 msgstr ""
