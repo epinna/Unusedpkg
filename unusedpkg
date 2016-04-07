@@ -17,6 +17,10 @@
 #GNU General Public License for more details.
 #
 
+export TEXTDOMAIN=unusedpkg
+. gettext.sh
+
+
 VER=0.8
 
 #
@@ -746,7 +750,7 @@ done
 if [ "$QUIET" == 0 ]; then
 	echo ""
 	echo "* UnusedPkg	$VER"
-	echo "  Find unused packages in your Linux system." 
+	echo $(gettext "  Find unused packages in your Linux system.")
 	echo ""
 fi
 
