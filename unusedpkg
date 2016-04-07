@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################
-# UnusedPkg     0.6 - Emilio Pinna             #
+# UnusedPkg     0.9 - Emilio Pinna             #
 # Find unused packages in your Linux system.   #
 ################################################
 
@@ -17,9 +17,15 @@
 #GNU General Public License for more details.
 #
 
-VER=0.8
+export TEXTDOMAIN=unusedpkg
+. gettext.sh
+
+
+VER=0.9
 
 #
+#* version 0.9
+# Gettext localization has been integrated
 #* version 0.8
 # Ported to blackPanther OS
 #* version 0.7
@@ -53,7 +59,7 @@ elif [ -d /var/log/packages ]; then
 elif [ -d /var/lib/urpmi/ ]; then 
 	DISTR="blackPantherOS" 
 else 
-	echo "Your linux distribution is unsupported by this unusedpkg version"
+	echo $(gettext "Your linux distribution is unsupported by this unusedpkg version")
 	exit 1
 fi
 
@@ -353,9 +359,9 @@ if [ $DISTR == "blackPantherOS" ]; then
 			cat $DBDIR/pkglist.tmp | uniq | sort > $DBDIR/pkglist
 			rm $DBDIR/pkglist.tmp
 
-			echo "Database update done.                "
+			echo $(gettext "Database update done.                ")
 		else
-			echo "Update failed: database $DBDIR/pkglist.tmp doesn't exist."
+			echo $(gettext "Update failed: database ")$DBDIR/pkglist.tmp $(gettext " doesn't exist.")
 			echo ""
 			exit 1
 		fi
@@ -365,12 +371,12 @@ if [ $DISTR == "blackPantherOS" ]; then
 
 	Info() {
 		
-		if [ ! $1 ]; then echo "Specify exact package name."; return; fi
+		if [ ! $1 ]; then echo $(gettext "Specify exact package name."); return; fi
 
 		FILE=`rpmquery -l $1`
-		if [ ! -f $FILE ]; then echo "Package $1 is not installed, please specify exact name."; return; fi
+		if [ ! -f $FILE ]; then echo $(gettext "Package") $1 $(gettext "is not installed, please specify exact name."); return; fi
 
-		echo "Show $1 package informations:"
+		echo $(gettext "Show") $1 $("package informations:")
 		echo ""
 		urpmq -S $1
 		echo ""
@@ -383,11 +389,11 @@ if [ $DISTR == "blackPantherOS" ]; then
 			LIST=`cat $FILE | grep -E "$PATHS"`
 			
 			
-			 if [ ${#LIST} -lt 1 ]; then echo -e "The package doesn't contain any binary program file in the directories\n$PATH.\nTry with -a option.\n"; return 1; fi
+			 if [ ${#LIST} -lt 1 ]; then echo -e $(gettext "The package doesn't contain any binary program file in the directories\n")$PATH$(gettext ".\nTry with -a option.\n"); return 1; fi
 		else
 			LIST=`cat $FILE`
 			
-			 if [ ${#LIST} -lt 1 ]; then echo -e "The package doesn't contain any file\n"; return 1; fi
+			 if [ ${#LIST} -lt 1 ]; then echo -e $(gettext "The package doesn't contain any file\n"); return 1; fi
 		fi
 		 
 		
@@ -397,7 +403,7 @@ if [ $DISTR == "blackPantherOS" ]; then
 
 		echo ""
 
-		echo "Last access to the package:" `tail -n 1 $TMP | cut -f1`
+		echo $(gettext "Last access to the package:") `tail -n 1 $TMP | cut -f1`
 		echo ""
 		rm $TMP
 		
@@ -629,14 +635,14 @@ PrintList() {
 	
 	if [ "$QUIET" == 0 ]; then
 	
-		echo "WARNING:"
-		echo "   The reported idle days may be wrong. Before removing packages, check timestamps with" 
-		echo "   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. See README for more info."
+		echo $(gettext "WARNING:")
+		echo $(gettext "   The reported idle days may be wrong. Before removing packages, check timestamps with" )
+		echo $(gettext "   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. See README for more info.")
 		echo ""
-		echo "Minimum packages size: $ONLYSIZE"
-		if [ "$ONLYDAYS" != "0" ]; then echo "Packages older than $ONLYDAYS days"; fi
+		echo $(gettext "Minimum packages size: ") $ONLYSIZE
+		if [ "$ONLYDAYS" != "0" ]; then echo $(gettext "Packages older than ") $ONLYDAYS $(gettext " days"); fi
 		echo ""
-		echo -e "IDLE DAYS  \tSIZE	PACKAGE NAME"
+		echo -e $(gettext "IDLE DAYS  \tSIZE	PACKAGE NAME")
 	fi
 
 	a=1
@@ -746,7 +752,7 @@ done
 if [ "$QUIET" == 0 ]; then
 	echo ""
 	echo "* UnusedPkg	$VER"
-	echo "  Find unused packages in your Linux system." 
+	echo $(gettext "  Find unused packages in your Linux system.")
 	echo ""
 fi
 

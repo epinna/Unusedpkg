@@ -1,0 +1,101 @@
+# Hungarian translations for PACKAGE package.
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Miklos Horvath <mikloshorvath@blackpantheros.eu>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-07 04:17+0100\n"
+"PO-Revision-Date: 2016-04-07 04:18+0100\n"
+"Last-Translator: Miklos Horvath <mikloshorvath@blackpantheros.eu>\n"
+"Language-Team: Hungarian\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: unusedpkg:62
+msgid "Your linux distribution is unsupported by this unusedpkg version"
+msgstr "A Linux disztribúciód nem támogatott az unusedpkg jelenlegi verziójában"
+
+#: unusedpkg:362
+msgid "Database update done.                "
+msgstr "Adatbázis frissítése kész"
+
+#: unusedpkg:364
+msgid "Update failed: database "
+msgstr "Adatbázis frissítése sikertelen"
+
+#: unusedpkg:364
+msgid " doesn't exist."
+msgstr " nem létezik"
+
+#: unusedpkg:374
+msgid "Specify exact package name."
+msgstr "Adj meg pontos csomagnevet!"
+
+#: unusedpkg:377
+msgid "Package"
+msgstr "Csomag"
+
+#: unusedpkg:377
+msgid "is not installed, please specify exact name."
+msgstr "nem telepített, kérlek adj meg pontos nevet."
+
+#: unusedpkg:379
+msgid "Show"
+msgstr ""
+
+#: unusedpkg:392
+msgid ""
+"The package doesn't contain any binary program file in the directories\\n"
+msgstr "A csomag nem tartalmaz bináris fájlt a könyvtárban\\n"
+
+#: unusedpkg:392
+msgid ".\\nTry with -a option.\\n"
+msgstr ".\\nPróbáld a -a opciót.\\n"
+
+#: unusedpkg:396
+msgid "The package doesn't contain any file\\n"
+msgstr "A csomag nem tartalmaz fájlokat\\n"
+
+#: unusedpkg:406
+msgid "Last access to the package:"
+msgstr "A csomag utolsó elérése:"
+
+#: unusedpkg:638
+msgid "WARNING:"
+msgstr "FIGYELMEZTETÉS:"
+
+#: unusedpkg:639
+msgid ""
+"   The reported idle days may be wrong. Before removing packages, check timestamps with"
+msgstr ""
+
+#: unusedpkg:640
+msgid ""
+"   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. See README for more info."
+msgstr ""
+
+#: unusedpkg:642
+msgid "Minimum packages size: "
+msgstr "Minimális csomagméret:"
+
+#: unusedpkg:643
+msgid "Packages older than "
+msgstr "Csomagok régebbiek, mint"
+
+#: unusedpkg:643
+msgid " days"
+msgstr " nap"
+
+#: unusedpkg:645
+msgid "IDLE DAYS  \\tSIZE\tPACKAGE NAME"
+msgstr ""
+
+#: unusedpkg:755
+msgid "  Find unused packages in your Linux system."
+msgstr "  Találj nem használt csomagokat a Linux rendszereden."
