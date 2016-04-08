@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################
-# UnusedPkg     0.9 - Emilio Pinna             #
+# UnusedPkg     1.0 - Emilio Pinna             #
 # Find unused packages in your Linux system.   #
 ################################################
 
@@ -21,9 +21,11 @@ export TEXTDOMAIN=unusedpkg
 . gettext.sh
 
 
-VER=0.9
+VER=1.0
 
 #
+#* version 1.0
+# install.sh + blackpanther OS spec file
 #* version 0.9
 # Gettext localization has been integrated
 #* version 0.8
@@ -376,7 +378,7 @@ if [ $DISTR == "blackPantherOS" ]; then
 		FILE=`rpmquery -l $1`
 		if [ ! -f $FILE ]; then echo $(gettext "Package") $1 $(gettext "is not installed, please specify exact name."); return; fi
 
-		echo $(gettext "Show") $1 $("package informations:")
+		echo $(gettext "Show") $1 $(gettext"package informations:")
 		echo ""
 		urpmq -S $1
 		echo ""
@@ -682,20 +684,20 @@ PrintList() {
 
 Help() {
 
-  echo "Usage: $0 update {-q} {-a}"
-  echo "       $0 list {options}"
-  echo "       $0 info {-a} [package name]"
+  echo $(gettext "Usage:")" $0  update {-q} {-a}"
+  echo "       $0 list {"$(gettext "options")"}"
+  echo "       $0 info {-a} ["$(gettext "package name")"]"
   echo "       $0 help"
   
   echo ""
-  echo "Options:"
-  echo "	-d ?		- 'list' only packages older than specified days number."
-  echo "	-t yyyy-mm-dd	- 'list' only packages older than specified date."
-  echo "	-s ?[KB,MB,GB]	- 'list' only packages bigger then the specified size. Default value is 1MB" 
-  echo "			  to avoid listing metapackages."
-  echo "	-q		- 'update' silently or 'list' only packages name. Useful in scripts."
-  echo "	-a		- 'update' or get 'info's about every kind of packages. It change default"
-  echo "			  behaviour to get file time statistics only from \$PATH directories."
+  echo $(gettext "Options:")
+  echo "	-d ?		- "$(gettext "'list' only packages older than specified days number.")
+  echo "	-t yyyy-mm-dd	- "$(gettext "'list' only packages older than specified date.")
+  echo "	-s ?[KB,MB,GB]	- "$(gettext "'list' only packages bigger then the specified size. Default value is 1MB" )
+  echo "			  "$(gettext "to avoid listing metapackages.")
+  echo "	-q		- "$(gettext "'update' silently or 'list' only packages name. Useful in scripts.")
+  echo "	-a		- "$(gettext "'update' or get 'info's about every kind of packages. It change default")
+  echo "			  "$(gettext "behaviour to get file time statistics only from \$PATH directories.")
     
   echo ""
 
@@ -740,7 +742,7 @@ while [ "$1" ]; do
 	elif [ ! `chkdateformat $1` ] && [ "$ONLYTIME" != "0" ]; then
 		true
 	else
-		echo "Wrong argument '$1'."
+		echo $(gettext "Wrong argument")" '$1'."
 		echo ""
 		Help
 		exit 1
@@ -768,7 +770,7 @@ fi
 ##
 
 if [ ! `chkdateformat | stat -c %x /etc/ | awk '{ print $1 }'` ] && [ "`stat -c "%c %F" /etc/ | grep dir`" ]; then
-	echo "The `which stat` -c \"%x %F\" command output isn't in [YYYY-MM-DD ... filetype] format"
+	echo $(gettext "The `which stat` -c \"%x %F\" command output isn't in")" [YYYY-MM-DD ... "$(gettext "filetype] format")
 	exit 1	
 fi
 
@@ -784,7 +786,7 @@ fi
 if [ ! "$ACTION" ]; then
 
 	if [ ! -e $DBDIR/pkglist ]; then
-		echo "Database $DBDIR/pkglist doesn't exist (first run?). Automatically executing '$0 update'."
+		echo $(gettext "Database")" $DBDIR/pkglist "$(gettext "doesn't exist (first run?). Automatically executing")" '$0" $(gettext "update'.")
 		echo ""
 		UpdateList
 	fi
@@ -801,7 +803,7 @@ if [ "$ACTION" == "list" ]; then
 	##
 	
 	if [ ! -e $DBDIR/pkglist ]; then
-		echo "Database $DBDIR/pkglist doesn't exist (first run?). Please execute '$0 update'."
+		echo $(gettext "Database")" $DBDIR/pkglist "$("doesn't exist (first run?). Please execute '")$0 $(gettext "update'.")
 		echo ""
 		exit 1
 	fi
@@ -810,7 +812,7 @@ if [ "$ACTION" == "list" ]; then
 	DIFF=`dayold $DATE 1`
 	
 	if [ $DIFF -gt 8 ]; then
-		echo "Database $DBDIR/pkglist seems $DIFF days old, execute $0 update, or press enter to continue."
+		echo $(gettext "Database")" $DBDIR/pkglist "$(gettext "seems") $DIFF $(gettext "days old, execute")" $0 "$(gettext "update, or press enter to continue.")
 		read
 	fi
 

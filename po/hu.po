@@ -1,49 +1,51 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Hungarian translations for PACKAGE package.
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Miklos Horvath <mikloshorvath@blackpantheros.eu>, 2016.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-08 00:58+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2016-04-08 01:28-0000\n"
+"Last-Translator: Miklos Horvath <hmiki@blackpantheros.eu>\n"
+"Language-Team: Hungarian\n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.10\n"
 
 #: unusedpkg:62
 msgid "Your linux distribution is unsupported by this unusedpkg version"
 msgstr ""
+"A Linux disztribúciód nem támogatott az unusedpkg jelenlegi verziójában"
 
 #: unusedpkg:362
 msgid "Database update done.                "
-msgstr ""
+msgstr "Adatbázis frissítése kész"
 
 #: unusedpkg:364
 msgid "Update failed: database "
-msgstr ""
+msgstr "Adatbázis frissítése sikertelen"
 
 #: unusedpkg:364
 msgid " doesn't exist."
-msgstr ""
+msgstr " nem létezik"
 
 #: unusedpkg:374
 msgid "Specify exact package name."
-msgstr ""
+msgstr "Adj meg pontos csomagnevet!"
 
 #: unusedpkg:377
 msgid "Package"
-msgstr ""
+msgstr "Csomag"
 
 #: unusedpkg:377
 msgid "is not installed, please specify exact name."
-msgstr ""
+msgstr "nem telepített, kérlek adj meg pontos nevet."
 
 #: unusedpkg:379
 msgid "Show"
@@ -52,92 +54,97 @@ msgstr ""
 #: unusedpkg:392
 msgid ""
 "The package doesn't contain any binary program file in the directories\\n"
-msgstr ""
+msgstr "A csomag nem tartalmaz bináris fájlt a könyvtárban\\n"
 
 #: unusedpkg:392
 msgid ".\\nTry with -a option.\\n"
-msgstr ""
+msgstr ".\\nPróbáld a -a opciót.\\n"
 
 #: unusedpkg:396
 msgid "The package doesn't contain any file\\n"
-msgstr ""
+msgstr "A csomag nem tartalmaz fájlokat\\n"
 
 #: unusedpkg:406
 msgid "Last access to the package:"
-msgstr ""
+msgstr "A csomag utolsó elérése:"
 
 #: unusedpkg:638
 msgid "WARNING:"
-msgstr ""
+msgstr "FIGYELMEZTETÉS:"
 
 #: unusedpkg:639
 msgid ""
 "   The reported idle days may be wrong. Before removing packages, check "
 "timestamps with"
 msgstr ""
+"   A jelentett tétlenségi idők lehetnek rosszak, A csomagok törlése előtt "
+"ellenőrizd az időbélyeget"
 
 #: unusedpkg:640
 msgid ""
 "   'unusedpkg info <package>' or check the timestamps with 'ls -alu'. See "
 "README for more info."
 msgstr ""
+"   'unusedpkg info <csomag>'  vagy ellenőrizd az időbélyeget 'ls -alu'. Több "
+"információért olvasd a README-t."
 
 #: unusedpkg:642
 msgid "Minimum packages size: "
-msgstr ""
+msgstr "Minimális csomagméret:"
 
 #: unusedpkg:643
 msgid "Packages older than "
-msgstr ""
+msgstr "Csomagok régebbiek, mint"
 
 #: unusedpkg:643
 msgid " days"
-msgstr ""
+msgstr " nap"
 
 #: unusedpkg:645
 msgid "IDLE DAYS  \\tSIZE\tPACKAGE NAME"
-msgstr ""
+msgstr "TÉTLENSÉG NAP \\tMÉRET\tCSOMAGNÉV"
 
 #: unusedpkg:685
 msgid "Usage:"
-msgstr ""
+msgstr "Használat:"
 
 #: unusedpkg:686
 msgid "options"
-msgstr ""
+msgstr "opciók"
 
 #: unusedpkg:687
 msgid "package name"
-msgstr ""
+msgstr "Csomagnév"
 
 #: unusedpkg:691
 msgid "Options:"
-msgstr ""
+msgstr "Opciók:"
 
 #: unusedpkg:692
 msgid "'list' only packages older than specified days number."
-msgstr ""
+msgstr "'list' csak a csomagok amik idősebbek, mint a megadott napok száma."
 
 #: unusedpkg:693
 msgid "'list' only packages older than specified date."
-msgstr ""
+msgstr "'list' csak a megadott dátumnál régebbi csomagok."
 
 #: unusedpkg:694
 msgid ""
 "'list' only packages bigger then the specified size. Default value is 1MB"
-msgstr ""
+msgstr "'list' csak a megadott méretnél nagyobb csomagok. Alapérték 1MB"
 
 #: unusedpkg:695
 msgid "to avoid listing metapackages."
-msgstr ""
+msgstr "metacsomagok listázásának elkerülése."
 
 #: unusedpkg:696
 msgid "'update' silently or 'list' only packages name. Useful in scripts."
-msgstr ""
+msgstr "'update' csendben vagy 'list' csak a fájlneveket. Scriptekben hasznos."
 
 #: unusedpkg:697
 msgid "'update' or get 'info's about every kind of packages. It change default"
 msgstr ""
+"'update' vagy lekérés 'info' mindenféle csomagról. Ezaz alapértelmezett"
 
 #: unusedpkg:698
 #, sh-format
@@ -146,36 +153,36 @@ msgstr ""
 
 #: unusedpkg:743
 msgid "Wrong argument"
-msgstr ""
+msgstr "Hibás argumentum"
 
 #: unusedpkg:755
 msgid "  Find unused packages in your Linux system."
-msgstr ""
+msgstr "  Találj nem használt csomagokat a Linux rendszereden."
 
 #: unusedpkg:771
 msgid "filetype] format"
-msgstr ""
+msgstr "fájltípus] formátum"
 
 #: unusedpkg:787 unusedpkg:804 unusedpkg:813
 msgid "Database"
-msgstr ""
+msgstr "Adatbázis"
 
 #: unusedpkg:787
 msgid "doesn't exist (first run?). Automatically executing"
-msgstr ""
+msgstr "nem létezik (első futtatás?). Automatikusan végrehajtva"
 
 #: unusedpkg:787 unusedpkg:804
 msgid "update'."
-msgstr ""
+msgstr "frissítés'."
 
 #: unusedpkg:813
 msgid "seems"
-msgstr ""
+msgstr "látszik"
 
 #: unusedpkg:813
 msgid "days old, execute"
-msgstr ""
+msgstr "nap idős, végrehajtás"
 
 #: unusedpkg:813
 msgid "update, or press enter to continue."
-msgstr ""
+msgstr "frissítés, vagy üss entert a folytatáshoz."
