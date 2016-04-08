@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ################################################
-# UnusedPkg     0.9 - Emilio Pinna             #
+# UnusedPkg     1.0 - Emilio Pinna             #
 # Find unused packages in your Linux system.   #
 ################################################
 
@@ -21,9 +21,11 @@ export TEXTDOMAIN=unusedpkg
 . gettext.sh
 
 
-VER=0.9
+VER=1.0
 
 #
+#* version 1.0
+# install.sh + blackpanther OS spec file
 #* version 0.9
 # Gettext localization has been integrated
 #* version 0.8
